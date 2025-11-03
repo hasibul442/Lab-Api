@@ -1,4 +1,4 @@
-import { deleteTest, getAllTests, getTestById, storeTest, updateTest } from "../services/TestService";
+import { deleteTest, getAllTests, getTestById, storeTest, updateTest } from "../services/TestService.js";
 
 export async function getTestList(req, res) {
     try {
