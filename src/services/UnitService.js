@@ -6,9 +6,14 @@ export async function getAllUnits(req)  {
 }
 
 export async function storeUnit(reqData) {
-    const newUnit = new Units(data);
-    const savedUnit = await newUnit.save();
-    return savedUnit;
+    try {
+        const newUnit = new Units(reqData);
+        const savedUnit = await newUnit.save();
+        return savedUnit;
+    } catch (error) {
+        // Handle validation errors or other errors
+        throw error;
+    }
 }
 
 export async function getUnitById(unitId) {

@@ -3,10 +3,12 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDb from "./src/utils/lib/dbconnection.js";
 import routes from "./src/routes/routes.js";
-import { notFound } from "./src/middlewares/errorMiddleware.js";
+import { errorHandler, notFound } from "./src/middlewares/errorMiddleware.js";
+
+
 dotenv.config();
 const app = express();
-const port = process.env.APPLICATION_PORT || 3001;
+const port = process.env.APPLICATION_PORT;
 
 // Middleware
 app.use(express.json());
@@ -17,6 +19,8 @@ connectDb();
 app.use("/api/v1", routes);
 
 app.use(notFound);
+app.use(errorHandler);
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
