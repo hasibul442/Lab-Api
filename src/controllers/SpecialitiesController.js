@@ -1,4 +1,4 @@
-import Doctor_Specialties from "../models/Doctor_specialties.js";
+import Doctor_Specialties from "../models/Doctor_Specialties.js";
 
 export async function getSpecialties(req, res, next) {
     try {
