@@ -2,10 +2,11 @@ import TestCategory from "../models/TestCategory.js";
 
 export async function getAllCategory(req) {
   const searchParams = req.query;
-  const page = parseInt(searchParams.page) || 1;
-  const limit = parseInt(searchParams.limit) || 10;
+  
+  const page = Number.parseInt(searchParams.page) || 1;
+  const limit = Number.parseInt(searchParams.limit) || 10;
   const skip = (page - 1) * limit;
-  const searchText = searchParams.get("search") || "";
+  const searchText = searchParams.search || "";
 
   const [categories, total] = await Promise.all([
     TestCategory.find({ name: { $regex: searchText, $options: 'i' } })
