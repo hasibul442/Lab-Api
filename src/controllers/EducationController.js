@@ -3,8 +3,8 @@ import Education from "../models/Education.js";
 export async function getEducation(req, res, next) {
     try {
         const searchParams = req.query;
-        const page = parseInt(searchParams.page) || 1;
-        const limit = parseInt(searchParams.limit) || 10;
+        const page = Number.parseInt(searchParams.page) || 1;
+        const limit = Number.parseInt(searchParams.limit) || 10;
         const skip = (page - 1) * limit;
 
         const [educationData, total] = await Promise.all([
@@ -28,7 +28,7 @@ export async function getEducation(req, res, next) {
         res.status(200).json({
             success: true,
             message: "Education data fetched successfully",
-            data: response,
+            ...response,
         });
     } catch (error) {
         next(error);
