@@ -28,9 +28,9 @@ router.delete("/role/:id", deleteRoleData);
 
 router.get("/test", getTestList);
 router.post("/test", createTest);
-router.get("/test/:id", getTest);
-router.put("/test/:id", updateTestData);
-router.delete("/test/:id", deleteTestData);
+router.get("/test/data/:id", getTest);
+router.put("/test/update/:id", updateTestData);
+router.delete("/test/delete/:id", deleteTestData);
 
 router.get("/test/category", getTestCategoryList);
 router.post("/test/category", createTestCategory);
