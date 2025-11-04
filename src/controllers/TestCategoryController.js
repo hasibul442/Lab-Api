@@ -1,6 +1,6 @@
 import { deleteCategory, getAllCategory, getCategoryById, storeCategory, updateCategory } from "../services/TestCategoryService.js";
 
-export async function getTestCategoryList(req, res) {
+export async function getTestCategoryList(req, res, next) {
     try {
         const categories = await getAllCategory(req);
         res.status(200).json({
