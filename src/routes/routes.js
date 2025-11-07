@@ -7,12 +7,16 @@ import { createTest, deleteTestData, getTest, getTestList, updateTestData } from
 import { createTestCategory, deleteTestCategory, getTestCategory, getTestCategoryList, updateTestCategory } from "../controllers/TestCategoryController.js";
 import { createEducation, deleteEducation, getEducation, getEducationById, updateEducation } from "../controllers/EducationController.js";
 import { createSpecialty, deleteSpecialtyData, getSpecialties, getSpecialty, updateSpecialtyData } from "../controllers/SpecialitiesController.js";
+import { createUserType, getUserTypes } from "../controllers/UserTypeController.js";
 
 const router = express.Router();
 
 router.get("/health", healthCheck);
 
 router.get("/home", homeData);
+
+router.get("/user-types", getUserTypes);
+router.post("/user-types", createUserType);
 
 router.get("/unit", getUnitData);
 router.post("/unit", createUnit);
