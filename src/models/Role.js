@@ -7,8 +7,9 @@ const roleSchema = new mongoose.Schema({
     unique: true,
     trim: true
   },
+  unit: { type: mongoose.Schema.Types.ObjectId, ref: "Unit" },
   permissions: {
-    type: [{ type: String }],
+    type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Permission" }],
     required: [true, 'Permissions are required'],
     // validate: {
     //   validator: function (v) {
